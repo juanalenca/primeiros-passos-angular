@@ -1,0 +1,50 @@
+<app-footer></app-footer>
+
+<!--
+{{}} -> forma de passar uma variavel no template html
+-->
+{{ cont }}
+
+<!--
+[] -> indica que será passado uma expressão javascript
+e não uma string literal:
+<img [src]="imgUrl">
+-->
+
+<!--
+() -> liga um envento DOM/html a um método js no componente,
+ neste caso, o angular diminiu o tamanho do nome do envento:
+ de onClick oara click
+-->
+<button (click)="teste()">Clique me Mim ( ͡° ͜ʖ ͡°)</button>
+
+<input type="text" (change)="teste()">
+
+<p>{{data}}</p>
+
+<!--Derivativa if nova -->
+@if(value){
+  <h2>Opa! É a derivativa nova</h2>
+}@else if(cont == 2){
+  <h2>O numero 2</h2>
+}@else {
+ <h2>else</h2>
+}
+
+<!--O *ngIf necessita importar o CommonModule no @Component-->
+<h2 *ngIf="value">Opa! É derivativa velha</h2>
+
+
+@for(item of lista; track item){
+  <p>{{ item }}</p>
+}@empty { <!--"Caso esteja vazia"-->
+  <p>vazio!!</p>
+}
+
+
+<div *ngFor="let item of lista">
+  <p>{{item}}</p>
+</div>
+
+
+<h2 *ngIf="lista.length == 0">A lista é vazia</h2>
